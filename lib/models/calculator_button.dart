@@ -1,3 +1,4 @@
+import 'package:calculator/ui/calculator.dart';
 import 'package:flutter/material.dart';
 
 class CalculatorButton extends StatelessWidget {
@@ -7,10 +8,13 @@ class CalculatorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MainState mainState = MainState.of(context);
     return Expanded(
       flex: 1,
       child: FlatButton(
-          onPressed: () => debugPrint("pressed the button $keyValue"),
+          onPressed: () {
+            mainState.onPressed(keyValue);
+          },
           shape: Border.all(
               width: 2.0,
               color: Colors.grey.withOpacity(0.5),

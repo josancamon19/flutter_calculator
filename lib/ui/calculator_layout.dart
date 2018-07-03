@@ -1,11 +1,12 @@
 import 'package:calculator/models/calculator_button.dart';
+import 'package:calculator/ui/calculator.dart';
 import 'package:flutter/material.dart';
-
 
 class CalculatorLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mainState = MainState.of(context,);
     return Scaffold(
       appBar: AppBar(
         title: Text("Calculator"),
@@ -17,9 +18,10 @@ class CalculatorLayout extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               color: Colors.blueGrey.withOpacity(0.85),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Text(
-                    "",
+                    mainState.inputValue ?? '0',
                     style: TextStyle(
                         color: Colors.black87,
                         fontWeight: FontWeight.w700,
@@ -34,7 +36,7 @@ class CalculatorLayout extends StatelessWidget {
             child: Container(
               child: Column(
                 children: <Widget>[
-                  buttonsByRow('C%</'),
+                  buttonsByRow('C<%/'),
                   buttonsByRow('789x'),
                   buttonsByRow('456-'),
                   buttonsByRow('123+'),
